@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&display=swap');
+
+// couleurs Variables
+$firstBoxColor: hsl(31, 77%, 52%);
+$secondBoxColor: hsl(184, 100%, 22%);
+$thirdBoxColor: hsl(179, 100%, 13%);
+$mainColor: hsl(0, 0%, 95%);
+
+
+
+* { margin: 0; }
+
+body {
+    font-size: 0.9em;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 400;
+    line-height: 1.5em;
+    background-color: $mainColor;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+
+    min-height: 450px;
+    display: flex;
+    margin: 30px;
+    border-radius: 10px;
+
+    @media screen and (max-width: 768px) {
+        max-width: 300px;
+        flex-direction: column;
+    }
+    @media screen and (min-width: 768px) {
+        max-width: 900px;
+        flex-direction: row;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 30px 50px;
+        gap: 30px;
+
+        &__title {
+            font-family: "Big Shoulders Display", sans-serif;
+            font-weight: 700;
+            color: $mainColor;
+            text-transform: uppercase;
+        }
+        &__content {
+            color: hsla(0, 0%, 100%, 0.75);
+
+            @media screen and (min-width: 768px) {
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+        }
+        &__link {
+            width: 100px;
+            padding: 10px;
+
+            text-align: center;
+            text-decoration: none;
+
+            border-radius: 30px;
+            background-color: $mainColor;
+        }
+
+    }
+}
+
+.one {
+    background-color: $firstBoxColor;
+
+    a { color: $firstBoxColor; }
+    a:hover {
+        color: $mainColor;
+        border: 2px solid $mainColor;
+        background-color: $firstBoxColor;
+    }
+
+    @media screen and (max-width: 768px) {
+        border-radius: 10px 10px 0 0;
+    }
+    @media screen and (min-width: 768px) {
+        border-radius: 10px 0 0 10px;
+    }
+}
+.two {
+    background-color: $secondBoxColor;
+    a { color: $secondBoxColor; }
+    a:hover {
+        color: $mainColor;
+        border: 2px solid $mainColor;
+        background-color: $secondBoxColor;
+    }
+}
+.three {
+    background-color: $thirdBoxColor;
+
+    a { color:$thirdBoxColor; }
+    a:hover {
+        color: $mainColor;
+        border: 2px solid $mainColor;
+        background-color: $thirdBoxColor;
+    }
+
+    @media screen and (max-width: 768px) {
+        border-radius: 0 0 10px 10px;
+    }
+    @media screen and (min-width: 768px) {
+        border-radius: 0 10px 10px 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.attribution { font-size: 11px; text-align: center; a { color: hsl(228, 45%, 44%); } }
