@@ -19,24 +19,23 @@ body {
     background-color: $mainColor;
 
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-content: center;
 }
 
 .box {
 
     min-height: 450px;
     display: flex;
-    margin: 30px;
     border-radius: 10px;
-
-    @media screen and (max-width: 768px) {
-        max-width: 300px;
+    @media screen and (max-width: 42rem) {
         flex-direction: column;
     }
-    @media screen and (min-width: 768px) {
+    @media screen and (max-width: 64rem) {
+        min-width: 100%;
+        border-radius: 0;
+    }
+    @media screen and (min-width: 64rem) {
         max-width: 900px;
         flex-direction: row;
     }
@@ -47,7 +46,11 @@ body {
         justify-content: center;
         align-items: flex-start;
         padding: 30px 50px;
-        gap: 30px;
+        gap: 2rem;
+
+        @media screen and (42rem < width < 64rem) {
+            min-height: 100vh;
+        }
 
         &__title {
             font-family: "Big Shoulders Display", sans-serif;
@@ -57,11 +60,6 @@ body {
         }
         &__content {
             color: hsla(0, 0%, 100%, 0.75);
-
-            @media screen and (min-width: 768px) {
-                margin-top: 30px;
-                margin-bottom: 30px;
-            }
         }
         &__link {
             width: 100px;
@@ -72,6 +70,13 @@ body {
 
             border-radius: 30px;
             background-color: $mainColor;
+        }
+
+        &__image {
+            animation-name: speed;
+            animation-duration: 2000ms;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: backwards;
         }
 
     }
@@ -87,10 +92,10 @@ body {
         background-color: $firstBoxColor;
     }
 
-    @media screen and (max-width: 768px) {
-        border-radius: 10px 10px 0 0;
+    @media screen and (max-width: 64rem) {
+        border-radius: 0;
     }
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 64rem) {
         border-radius: 10px 0 0 10px;
     }
 }
@@ -113,29 +118,21 @@ body {
         background-color: $thirdBoxColor;
     }
 
-    @media screen and (max-width: 768px) {
-        border-radius: 0 0 10px 10px;
+    @media screen and (max-width: 64rem) {
+        border-radius: 0;
     }
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 64rem) {
         border-radius: 0 10px 10px 0;
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .attribution { font-size: 11px; text-align: center; a { color: hsl(228, 45%, 44%); } }
+
+@keyframes speed {
+    from {
+        transform: translateX(-20px);
+    }
+    to {
+        transform: translateX(180px);
+    }
+}
